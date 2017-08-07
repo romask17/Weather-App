@@ -1,18 +1,16 @@
-package com.weather.app.model;
+package com.weather.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WeatherInfoListDto {
+public class WeatherInfoList {
     @JsonProperty("dt")
-    private Date date;
+    private long unixTimestamp;
     @JsonProperty("temp")
-    private TemperatureDto temperature;
+    private Temperature temperature;
     private double pressure;
     private double humidity;
     private double speed;

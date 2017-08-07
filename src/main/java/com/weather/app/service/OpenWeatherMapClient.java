@@ -1,8 +1,8 @@
 package com.weather.app.service;
 
 import com.google.common.collect.ImmutableMap;
-import com.weather.app.model.WeatherDto;
-import com.weather.app.model.WeatherInfoListDto;
+import com.weather.app.domain.Weather;
+import com.weather.app.domain.WeatherInfoList;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,9 +20,9 @@ public class OpenWeatherMapClient {
     @Value("${application.openWeatherMapApiKey}")
     private String appId;
 
-    public List<WeatherInfoListDto> getWeatherByCityAndCountryCode(@NonNull String city, @NonNull String countryCode) {
+    public List<WeatherInfoList> getWeatherByCityAndCountryCode(@NonNull String city, @NonNull String countryCode) {
 
-        WeatherDto response = restTemplate.getForObject(openWeatherMapApiUrl, WeatherDto.class, ImmutableMap.of(
+        Weather response = restTemplate.getForObject(openWeatherMapApiUrl, Weather.class, ImmutableMap.of(
                 "cityName", city,
                 "countryCode", countryCode,
                 "appKey", appId

@@ -1,18 +1,27 @@
 package com.weather.app.service;
 
-import com.weather.app.model.WeatherInfoListDto;
+import com.google.common.collect.ImmutableList;
+import com.weather.app.dto.WeatherObjectDto;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class OpenWeatherMapService {
     @Autowired
-    OpenWeatherMapClient openWeatherMapClient;
+    private OpenWeatherMapClient openWeatherMapClient;
+    @Autowired
+    private WeatherObjectConverter weatherObjectConverter;
 
-    public List<WeatherInfoListDto> getWeatherByCityAndCountryCode(@NonNull String city, @NonNull String countryCode) {
-        return openWeatherMapClient.getWeatherByCityAndCountryCode(city, countryCode);
+    public ImmutableList<WeatherObjectDto> getWeatherByCityAndCountryCode(@NonNull String city, @NonNull String countryCode) {
+
+        ImmutableList<WeatherObjectDto> result = openWeatherMapClient.getWeatherByCityAndCountryCode(city, countryCode)
+                .stream()
+                .map(weatherObjectConverter::toWeatherObject)
+                .collect(collectingAndThen(toList(), ImmutableList::copyOf));
+        return result;
     }
 }

@@ -1,4 +1,4 @@
-package com.weather.app.model;
+package com.weather.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WeatherDto {
+public class Weather {
     @JsonProperty("list")
-    private List<WeatherInfoListDto> weatherInfoList;
+    private List<WeatherInfoList> weatherInfoList;
 }
