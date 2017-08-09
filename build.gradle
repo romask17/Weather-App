@@ -14,7 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 sourceCompatibility = 1.8
 
 repositories {
@@ -24,6 +24,8 @@ repositories {
 
 dependencies {
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+	compile group: 'org.springframework.retry', name: 'spring-retry'
 	compile group: 'com.google.guava', name: 'guava', version: '22.0'
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('org.springframework.boot:spring-boot-devtools')
