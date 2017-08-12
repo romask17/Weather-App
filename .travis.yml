@@ -20,7 +20,7 @@ after_success:
   - export NAME=safeone17/weatherapp
   - docker build -t $NAME:$COMMIT .
   - docker tag $NAME:$COMMIT $NAME:$TAG
-  - docker push $NAME
+  - docker push $NAME:$TAG
 
 
 notifications:
