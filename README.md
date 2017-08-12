@@ -32,7 +32,7 @@ java -jar ./build/libs/WeatherApp-1.0.0.jar
 http 'http://localhost:8080/api/v1.0/weather/?countryCode=ru&cityName=moscow'
 ```
 ### Получаем:
-```json
+```sh
 HTTP/1.1 200
 Content-Type: application/json;charset=UTF-8
 Date: Thu, 10 Aug 2017 19:46:16 GMT
@@ -62,3 +62,13 @@ Transfer-Encoding: chunked
 ]
 
 ```
+### Docker
+
+Необходим установленный `Docker` и `docker-compose`
+
+Команда: 
+
+```sh
+docker-compose up -d 
+```
+запускает `docker` контейнер на 8080 порту
