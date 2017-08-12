@@ -22,6 +22,7 @@ after_success:
   - docker tag $NAME:$COMMIT $NAME:$TAG
   - docker push $NAME
 
+
 notifications:
   email:
     - raskidan@ya.ru
