@@ -15,15 +15,12 @@ env:
     - COMMIT=${TRAVIS_COMMIT::7}
 
 after_success:
-  - ls -l build/
-  - ls -l build/libs
   - docker login -u $D_USER -p $D_PASS
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
   - export NAME=safeone17/weatherapp
   - docker build -t $NAME:$COMMIT .
   - docker tag $NAME:$COMMIT $NAME:$TAG
   - docker push $NAME:$TAG
-
 
 notifications:
   email:
