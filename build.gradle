@@ -30,7 +30,7 @@ dependencies {
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
 	compile group: 'org.springframework.retry', name: 'spring-retry'
-	compile group: 'com.google.guava', name: 'guava', version: '22.0'
+	compile group: 'com.google.guava', name: 'guava', version: '23.0'
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.0'
