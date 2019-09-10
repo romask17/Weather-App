@@ -27,7 +27,7 @@ jar {
 }
 
 dependencies {
-	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.9'
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.10'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
 	compile group: 'org.springframework.retry', name: 'spring-retry'
 	compile group: 'com.google.guava', name: 'guava', version: '23.0'
